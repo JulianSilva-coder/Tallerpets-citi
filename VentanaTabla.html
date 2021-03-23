@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="JS/jquery-3.6.0.min.js"></script>
+<script src="JS/Funcionalidad.js" type="text/javascript"></script>
+</head>
+<style type="text/css">
+	th{
+		padding: 10;
+		background-color: #FF0000;
+		margin: 1px solid #000;
+	}
+	button{
+		background-color: #FF0000;
+		font: oblique bold 25px cursive;
+		color: #FFFFFF;
+	}	
+</style>
+<body style="background-color: #FFFFFF;">
+
+		<table style="width: 100%">
+				<tr>
+					<th style="font: oblique bold 30px cursive; color: #FFFFFF;">Microchip</th>
+					<th style="font: oblique bold 30px cursive; color: #FFFFFF;">Specie</th>
+					<th style="font: oblique bold 30px cursive; color: #FFFFFF;">Sex</th>
+					<th style="font: oblique bold 30px cursive; color: #FFFFFF;">Size</th>
+					<th style="font: oblique bold 30px cursive; color: #FFFFFF;">PotentDangerous</th>
+					<th style="font: oblique bold 30px cursive; color: #FFFFFF;">Neighborhood</th>
+				</tr>
+				<tbody id="espacio">
+
+				</tbody>
+		</table>
+		<div id = contenedor>
+		</div>
+<script>
+$( document ).ready(async function() {
+	if (localStorage.memoria == null ||localStorage.memoria == undefined) {
+		leerJson().then((arreglo) => {
+			localStorage.setItem("memoria", JSON.stringify(array));
+		for (let index = 0; index < arreglo.length; index++) {
+			$('#espacio').append('<tr>' +
+			'<td>' +
+				arreglo[index].microchip + '</td>' +
+			'<td>' + 
+				arreglo[index].species + '</td>' +
+				'<td>' + 
+				arreglo[index].sex + '</td>' +
+				'<td>' + 
+					arreglo[index].size + '</td>' +
+					'<td>' + 
+					arreglo[index].potentDangerous + '</td>' +
+					'<td>' + 
+					arreglo[index].neighborhood + '</td>' +
+						'</tr>')}
+	});
+	}else{
+		arreglo = JSON.parse(localStorage.memoria);
+		for (let index = 0; index < arreglo.length; index++) {
+			$('#espacio').append('<tr>' +
+			'<td>' +
+				arreglo[index].microchip + '</td>' +
+			'<td>' + 
+				arreglo[index].species + '</td>' +
+				'<td>' + 
+				arreglo[index].sex + '</td>' +
+				'<td>' + 
+					arreglo[index].size + '</td>' +
+					'<td>' + 
+					arreglo[index].potentDangerous + '</td>' +
+					'<td>' + 
+					arreglo[index].neighborhood + '</td>' +
+						'</tr>')}
+	}
+	})
+</script>
+</body>
+</html>

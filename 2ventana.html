@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="JS/jquery-3.6.0.min.js"></script>
+<script src="JS/Funcionalidad.js" type="text/javascript"></script>
+</head>
+<body bgcolor="#FFFFFF">
+<table>
+	<div id="">
+		<tr>
+			<td>
+				<label style="font: oblique bold 150% cursive; color: 000000">Microchip</label>
+				<input type="text" style="width: 200px; height: 25px;" id="Microchip">
+			</td>
+			<td>
+				<label style="font: oblique bold 150% cursive; color: 000000">Especie</label>
+				<select id="specie" style="width: 200px; height: 25px;">
+					<option>Seleccione...</option>
+					<option>CANINO</option>
+					<option>FELINO</option>
+				</select>
+			</td>
+			<br> <br> <br>
+			<td>
+				<label style="font: oblique bold 25px cursive; color: #000000;">Tamaño</label>
+				<select id="tamaño" style=" width: 200px; height: 25px">
+					<option>Seleccione...</option>
+					<option>MINIATURA</option>
+					<option>PEQUEÑO</option>
+					<option>MEDIANO</option>
+					<option>GRANDE</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label style="font: oblique bold 25px cursive; color: #000000;">Sexo</label>
+				<select id="Genero" style=" width: 200px; height: 25px">
+					<option>Seleccione...</option>
+					<option>MACHO</option>
+					<option>HEMBRA</option>
+				</select>
+			</td>
+			<td>
+				<label style="font: oblique bold 25px cursive; color: #000000;">Peligroso</label>
+				<select id="Dangerous" style=" width: 200px; height: 25px">
+					<option>Seleccione...</option>
+					<option>SI</option>
+					<option>NO</option>
+				</select>
+			</td>
+		</tr>
+		<td>
+			<label style="font: oblique bold 25px cursive; color: #000000;">Localidad</label>
+			<select id="Localidad" style=" width: 200px; height: 25px">
+				<option>Seleccione...</option>
+				<option>USAQUEN</option>
+				<option>CHAPINERO</option>
+				<option>SANTA FE</option>
+				<option>SAN CRISTOBAL</option>
+				<option>USME</option>
+				<option>TUNJUELITO</option>
+				<option>BOSA</option>
+				<option>KENNEDY</option>
+				<option>FONTIBON</option>
+				<option>ENGATIVA</option>
+				<option>SUBA</option>
+				<option>B. UNIDOS</option>
+				<option>TEUSAQUILLO</option>
+				<option>LOS MARTIRES</option>
+				<option>A. NARIÑO</option>
+				<option>P. ARANDA</option>
+				<option>LA CANDELARIA</option>
+				<option>R. URIBE</option>
+				<option>C BOLIVAR</option>
+				<option>SUMAPAZ</option>
+				<option>MUNICIPIOS ALEDAÑOS BOGOTA D.C.</option>
+				<option>SIN IDENTIFICAR</option>
+			</select>
+		</td>
+	</div>
+</table>
+<br><br><br><br>
+<center>
+<button type="submit" class="boton" onclick="traer()">Enviar</button>
+</center>
+<script>
+	let array;
+	$( document ).ready(async function() {
+		if (localStorage.memoria == null ||localStorage.memoria == undefined) {
+		leerJson().then((arreglo) => {
+			array = arreglo;
+			console.log(array);
+		});
+		}else{
+			array = JSON.parse(localStorage.memoria);
+		}
+		})
+		function traer(){
+			var almacenar = new pets();
+		almacenar.microchip = $('#Microchip').val();
+		almacenar.species = $('#specie').val();
+		almacenar.sex = $('#Genero').val();
+		almacenar.size = $('#tamaño').val();
+		almacenar.potentDangerous = $('#Dangerous').val();
+		almacenar.neighborhood = $('#Localidad').val();
+		array.unshift(almacenar);
+		console.log(array);
+		localStorage.setItem("memoria", JSON.stringify(array));
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Este Link se encarga de colocar una imagen (ICO) para la pestaña de la página-->
+	<link rel="icon" href="Imagenes/patitA.ico"/> 
+	<title>Formulario </title>
+	<link rel="stylesheet" type="text/css" href="estilo.css"/>
+	<style>
+		/*
+		Este Style tipo CSS sirve para realizar que el atributo tenga componentes por ejemplo el color a banco
+		*/
+		h1{
+			color: #FFFFFF;
+		}
+	</style>
+</head>
+<body bgcolor="FFFFFF">
+	<!--Dentro de la lista desordenada (ul) manda un clase "menu" para reconocerla en los setting del CSS realizaremos -->
+<ul class="menu">
+	<!--El oblique bold realiza la cantidad de tamaño (recordar poner el "%").
+	y el tipo de fuente el cursive, mientras que el href realiza la direccion url para sitios web ya existentes-->
+	<li style="font: oblique bold 120% cursive;"><a href="VentanaInicio.html">Inicio</a></li>
+	<li style="font: oblique bold 120% cursive;"><a href="Pets_Formulario.html">Registrarse</a>
+		<!--Este Script lo utilizamos como una URL para direccionar para la pestaña de la funcionalidad de JavaScripFuncionalidad.js-->
+		<script src="Funcionalidad.js"></script>
+</li>
+	<li style="font: oblique bold 120% cursive;"><a href="Registro.html">Lista de los Animales</a></li>
+	<label class="espacio">________________________________________________________________________________________________________________________________S</label>
+	<img  id="imagen" src="Imagenes/patita.png" width="40" height="40"/>
+	<label style="font: oblique bold 120% cursive;">MASCOTAS</label>
+</ul>
+<center>
+	<div class="contenedor">
+<h1 style="font: oblique bold 70px cursive;">Por favor busque los siguientes datos</h1>
+<iframe src="2ventana.html" width="700" height="500"></iframe>
+</div>
+</center>
+<center>
+<!--Este iframe realiza agregar una pestaña dentro de otra pestaña como tipo un panel a otro en Java -->
+<div>
+<h2 style="font: oblique bold 60px cursive;" class="Color_mapa">Mapa</h2>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d254508.39280650613!2d-74.24789655790043!3d4.648625943737085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9bfd2da6cb29%3A0x239d635520a33914!2zQm9nb3TDoQ!5e0!3m2!1ses!2sco!4v1616341093137!5m2!1ses!2sco" width="550" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+</div>
+</center>
+</html>
